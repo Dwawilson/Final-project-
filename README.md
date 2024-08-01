@@ -48,6 +48,17 @@ This project aims to provide insights into users' mental health states based on 
 4. **Gradio App Integration**:
    - Kanish integrated the OpenAI model into a Gradio app, creating an interactive user interface where users can input their statements and receive a response from the chatbot which will provide suggestions on how to manage any mental health issues.
 
+## Preprocessing
+The dataset has 53403 rows with columns containing a statement and the mental health status associated with the statement. It contained 362 rows where the statement was null. After dropping rows with null values, the total number of entries is 52681. Each statement was analyzed with the Sentiment Intensity Analyzer from VADER Sentiment. The analyzer determines whether a statement is positive, negative, or neutral in sentiment. Two new columns were added that show the sentiment and the polarity score associated with the statement. The status column was set as the target variable and the data was split into training and testing data. The test size was 25% for y_status and 30% for y_sentiment.
+
+## ML Model
+The ML Model is a pipeline of TfidVectorizer and Support Vector Classifier (SVC). When using the model for Y_status_train, when analyzed for different mental health types, identified seven common conditions. These, from most to least common, are Anxiety, Bipolar Disorder, Depression, Normal Thoughts, Personality Disorder, Stress, and Suicidal Tendencies. The model achieved an overall accuracy of 0.78. For the ML Model Y_sentiment_train, The overall accuracy of this sentiment analysis was 0.82. A Pipeline that used English stopwords did not produce higher accuracies.
+
+## Open AI
+This system represents a sophisticated, multi-stage approach to Artificial Intelligence merged with mental health support. It combines prompt engineering, natural language processing, sentiment analysis, and large language model inference to provide contextually aware, empathetic responses to users' mental health queries.
+The system's modular design allows for easy updates and improvements allowing for the enhancement of the status and sentiment pipelines with more advanced models, and the expansion of the prompt template to cover more scenarios, or fine-tune the language model on mental health-specific data.
+While this system shows great promise in providing scalable, accessible mental health support, it's crucial to emphasize that it should complement, not replace, professional mental health services. Future developments could include integration with human oversight, expansion of the knowledge base, and implementation of more robust safeguards and ethical guidelines.
+
 ## How It Works
 - **User Interface**: The Gradio app features two textboxes. Users can enter their statements in the input textbox, and the chatbot's reponse to the statement will be displayed in the output textbox.
 - **Prediction Process**: The app processes user inputs through the trained linear SVC model and provides insights into the user's mental state.
