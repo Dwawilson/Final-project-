@@ -1,18 +1,92 @@
 # Group 3, Final Project: Mental Health Sentiment Chatbot Application
 By Dwann Wilson, Kanish Mohan, Kyle Williams, and Marcellus Smith
-## Summary
+## Project Overview
+This project aims to provide insights into users' mental health states based on their textual statements. By leveraging machine learning and natural language processing techniques, we can predict and analyze mental health statuses to offer valuable support and guidance.
 
 ## Dataset
 [Sarkar, Suchintika (2024), "Sentiment Analysis for Mental Health", Kaggle.](https://www.kaggle.com/datasets/suchintikasarkar/sentiment-analysis-for-mental-health)
 ## Dependencies
 * Pandas
+* MatPlotLib
+	* pyplot
 
-# Preprocessing
+* VADER Sentiment
+	* SentimentIntensityAnalyzer
 
-# ML Model
+* Scikit-Learn
 
+	* train_test_split
+	* Pipeline
+	* TfidVectorizer
+	* LinearSVC
+	* confusion_matrix
+	* classification_report
+	* accuracy_score
 
-# OpenAI
+* dotenv
+	* load_dotenv
+* os
+* LangChain
 
+	* ChatOpenAI
+	* PromptTemplate
+	* ChatPromptTemplate
+	* LLMChain
 
-# Gradio App
+* Gradio
+
+## Team Responsibilities
+1. **Data Preprocessing**:
+   - Marcellus is cleaned and preprocessed the dataset, by removing null values, analyzing each statment with VADER Sentiment, and spliting the data into training and testing sets.
+   
+2. **Model Training**:
+   - Dwann used a Pipeline with TfidVectorizer to convert plain text into vectors and Support Vector Classifier (SVC) model to predict mental health status and sentiment of a given statement based on the numerical weights.
+
+3. **OpenAI Prompts Integration**:
+   - Kyle developed a prompt template to send to OpenAI's “gpt-3.5-turbo" language model. The prompt tells the chatbot that they are a clinical psychologist tasked to provide meaningful responses using the predicted mental health status and sentiment in the prompt.
+
+4. **Gradio App Integration**:
+   - Kanish integrated the OpenAI model into a Gradio app, creating an interactive user interface where users can input their statements and receive a response from the chatbot which will provide suggestions on how to manage any mental health issues.
+
+## How It Works
+- **User Interface**: The Gradio app features two textboxes. Users can enter their statements in the input textbox, and the chatbot's reponse to the statement will be displayed in the output textbox.
+- **Prediction Process**: The app processes user inputs through the trained linear SVC model and provides insights into the user's mental state.
+- **Model Integration**: The app combines the power of the trained machine learning model with OpenAI's language model prompts to deliver accurate and helpful mental health predictions.
+
+## Usage
+1. **Launch the Gradio App**:
+   - Run the Gradio app to start the local server.
+2. **Input Statement**:
+   - Enter your statement about your mental state in the provided textbox.
+3. **Receive Prediction**:
+   - View the predicted mental health status in the output textbox.
+
+## Example Statements
+- "I have been feeling very anxious and stressed lately."
+- "I am experiencing severe depression and can't find motivation."
+- "I feel normal and haven't had any mental health issues recently."
+- "I've had suicidal thoughts and feel hopeless."
+- "I'm struggling with bipolar disorder and my mood swings are intense."
+- "I don't know what I'm doing with my life, and I feel lost and alone."
+- "I don't know if I have a mental illness. I just have trouble expressing myself and need help."
+- "I'm super happy."
+
+## Chatbot Responses
+- "Yes, it sounds like the user may benefit from some assistance in managing their anxiety and stress. I would suggest seeking support from a mental health professional, such as a therapist, who can help explore the underlying causes of the anxiety and provide coping strategies to manage it. Additonally, practicing relaxation techniques, mindfulness, and engaging in regular physical activity can be helpful in reducing anxity and stress."
+
+- "Yes, it sounds like the user is experiencing severe depression and a lack of motivation. I would suggest seeking help from a mental health professional, such as a therapist or psychiatrist, to discuss treatment options such as therapy, medication, or other interventions that may help improve their symptoms. It's important to reach out for support and not try to handle these feelings alone."
+
+- "It's great to hear that you feel normal and haven't had any recent mental health issues. However, since you mentioned having bipolar disorder, it's important to continue monitoring your mental health and seeking support when needed. I would suggest staying in touch with your mental health provider, practicing self-care, and reaching out for help if you notice any changes in your mood or behavior. It's always good to have a support system in place."
+
+- "Yes, the user definitely requires assistance. I would suggest that they seek help from a mental health professional, such as a therapist or psychiatrist, to address their suicidal thoughts and feelings of hopelessness. It's important to take these thoughts seriously and get the support needed to work through them."
+
+- "Yes, it sounds like the user could benefit from seeking assistance from a mental health professional, such as a psychiatrist or therapist, who can help with managing the intense mood swings associated with bipolar disorder. It's important to have a proper diagnosis and treatment plan in place to help manage symptoms and improve overall well-being. I would suggest reaching out to a mental health provider for further evaluation and support."
+
+- "Yes, it sounds like the user may be experiencing symptoms of depression. I would suggest seeking help from a mental health professional, such as a therapist or psychologist, to explore these feelings further and develop coping strategies. It's important to remember that you are not alone and there are resources available to support you."
+
+- "Yes, it sounds like the user may benefit from seeking help from a mental health professional, such as a therapist or psychologist, to further explore their difficulties with expressing themselves and determine if they may have a mental illness such as bipolar disorder. I would suggest reaching out to a mental health provider for an evaluation and to discuss treatment options. It's important to prioritize your mental health and seek support when needed."
+
+- "It's great to hear that you're feeling super happy! It sounds like you are in a positive state of mind. If you feel ever overwhelmed or need support, it's always helpful to talk to a mental health professional. Is there anything specific, you would like to discuss or ask about related to your mental health?
+
+## Purpose
+The goal of this project is to offer a tool that can help users gain insights into their mental health by analyzing their statements. This can provide a starting point for seeking further support or understanding one's mental state better.
