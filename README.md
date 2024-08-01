@@ -37,7 +37,7 @@ This project aims to provide insights into users' mental health states based on 
 
 ## Team Responsibilities
 1. **Data Preprocessing**:
-   - Marcellus is cleaned and preprocessed the dataset, by removing null values, analyzing each statment with VADER Sentiment, and spliting the data into training and testing sets.
+   - Marcellus cleaned and preprocessed the dataset, by removing null values, analyzing each statment with VADER Sentiment, and spliting the data into training and testing sets.
    
 2. **Model Training**:
    - Dwann used a Pipeline with TfidVectorizer to convert plain text into vectors and Support Vector Classifier (SVC) model to predict mental health status and sentiment of a given statement based on the numerical weights.
@@ -59,12 +59,13 @@ This system represents a sophisticated, multi-stage approach to Artificial Intel
 The system's modular design allows for easy updates and improvements allowing for the enhancement of the status and sentiment pipelines with more advanced models, and the expansion of the prompt template to cover more scenarios, or fine-tune the language model on mental health-specific data.
 While this system shows great promise in providing scalable, accessible mental health support, it's crucial to emphasize that it should complement, not replace, professional mental health services. Future developments could include integration with human oversight, expansion of the knowledge base, and implementation of more robust safeguards and ethical guidelines.
 
-## How It Works
+## Gradio App
+### How It Works
 - **User Interface**: The Gradio app features two textboxes. Users can enter their statements in the input textbox, and the chatbot's reponse to the statement will be displayed in the output textbox.
 - **Prediction Process**: The app processes user inputs through the trained linear SVC model and provides insights into the user's mental state.
 - **Model Integration**: The app combines the power of the trained machine learning model with OpenAI's language model prompts to deliver accurate and helpful mental health predictions.
 
-## Usage
+### Usage
 1. **Launch the Gradio App**:
    - Run the Gradio app to start the local server.
 2. **Input Statement**:
@@ -72,7 +73,7 @@ While this system shows great promise in providing scalable, accessible mental h
 3. **Receive Prediction**:
    - View the predicted mental health status in the output textbox.
 
-## Example Statements
+### Example Statements
 - "I have been feeling very anxious and stressed lately."
 - "I am experiencing severe depression and can't find motivation."
 - "I feel normal and haven't had any mental health issues recently."
@@ -82,7 +83,7 @@ While this system shows great promise in providing scalable, accessible mental h
 - "I don't know if I have a mental illness. I just have trouble expressing myself and need help."
 - "I'm super happy."
 
-## Chatbot Responses
+### Chatbot Responses
 - "Yes, it sounds like the user may benefit from some assistance in managing their anxiety and stress. I would suggest seeking support from a mental health professional, such as a therapist, who can help explore the underlying causes of the anxiety and provide coping strategies to manage it. Additonally, practicing relaxation techniques, mindfulness, and engaging in regular physical activity can be helpful in reducing anxity and stress."
 
 - "Yes, it sounds like the user is experiencing severe depression and a lack of motivation. I would suggest seeking help from a mental health professional, such as a therapist or psychiatrist, to discuss treatment options such as therapy, medication, or other interventions that may help improve their symptoms. It's important to reach out for support and not try to handle these feelings alone."
